@@ -1,0 +1,69 @@
+---
+title: "Lab3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+x <- rnorm(50, mean=50, sd=10)
+```
+
+#### 1. Function add2(x, y) that returns sum of two numbers:
+```{r}
+add2 <- function(x, y) {
+     return (x + y)
+}
+
+add2(5, 10)
+```
+#### 2. Function above(x, n), which takes the vector and the number n, and returns all elements of the vector that are greater than n. By default n = 10:
+```{r}
+above <- function(x, n=10) {
+      return (x[x>n])
+}
+
+above(x, n = 45)
+```
+#### 3. Function my_ifelse(x, exp, n), which takes vector x, compare all its elements by using exp with n, and returns elements of the vector that match conditions of expression. Example: my_ifelse(x, “>”, 0) returns all elements of x that greater than 0. Exp can be equal to “<”, “>”, “<=”, “>=”, “==”. If exp doesn’t match with any of those expressions returns vector x:
+```{r}
+my_ifelse <- function(x, exp, n) {
+    if (exp == "<") {
+        result <- x[x<n]
+    }
+    else if (exp == "<=") {
+        result <- x[x<=n]
+    }
+    else if (exp == "=") {
+        result <- x[x==n]
+    }
+    else if (exp == ">=") {
+        result <- x[x>=n]
+    }
+    else if (exp == ">") {
+        result <- x[x>n]
+    }else {
+        result <- x
+    }
+    return (result)
+}
+
+my_ifelse(x, "<", 45)
+my_ifelse(x, ">", 45)
+```
+#### 4. Function columnmean(x, removeNA) which counts the mean value for each column of the matrix, or data frame. The logical parameter removeNA indicates whether to delete the NA value. By default, it is TRUE:
+```{r}
+columnmean <- function(x, removeNA = TRUE) {
+  resultList <- list()
+  for (i in 1:ncol(x)) {
+    if (is.numeric(x[,i])) {
+      resultList[i] = mean(x[,i], na.rm = removeNA)
+    } else {
+      resultList[i] = "Not numeric field"
+    }
+  }
+  return (resultList)
+}
+
+m <- matrix(rnorm(49, mean=50, sd=10), nrow = 7)
+columnmean(m)
+```

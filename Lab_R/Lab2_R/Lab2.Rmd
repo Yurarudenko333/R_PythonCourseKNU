@@ -1,0 +1,64 @@
+---
+title: "Lab2"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### 1. Create a vector v of 100 elements:
+```{r}
+v <- rnorm(100)
+```
+#### 10-th element:
+```{r}
+v[10]
+```
+#### elements from 10-th to 20-th included
+```{r}
+v[10:20]
+```
+#### 10 elements start from 20-th
+```{r}
+head(v[-(1:20)], 10)
+```
+#### elements that more than 0
+```{r}
+v[v>0]
+```
+#### 2. Create data frame y
+```{r}
+y <- data.frame(a = rnorm(100), b = 1:100, cc = sample(letters, 100, replace = TRUE))
+```
+#### last 10 rows:
+```{r}
+tail(y, 10)
+```
+#### rows from 10th till 20th included:
+```{r}
+y[10:20,]
+```
+#### 10-th element of column b:
+```{r}
+y[10, "b"]
+```
+####  the whole column cc:
+```{r}
+y[, "cc"]
+```
+#### 3. Create a vector z with elements 1, 2, 3, NA, 4, NA, 5, NA
+```{r}
+z <- c(1, 2, 3, NA, 4, NA, 5, NA)
+```
+#### display all not NA values:
+```{r}
+as.numeric(na.omit(z))
+```
+#### count average of all not NA values:
+```{r}
+mean(z, na.rm = TRUE)
+```
+#### count average of all values:
+```{r}
+mean(z)
+```

@@ -1,0 +1,91 @@
+---
+title: "Lab1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+1.
+
+```{r}
+var_int <- 4L
+var_str <- "test"
+var_numeric <- 3.5
+var_logical <- TRUE
+var_complex <- 5+3i
+
+var_int
+var_str
+var_numeric
+var_logical
+var_complex
+```
+
+2.
+```{r}
+var_vector1 <- 5:75
+var_vector2 <- c(3.14, 2.71, 0, 13)
+var_vector3 <- rep(TRUE, times=100)
+
+var_vector1
+var_vector2
+var_vector3
+```
+
+3.
+```{r}
+var_matrix <- matrix(c(0.5, 3.9, 0, 2, 1.3, 131, 2.2, 7, 3.5, 2.8, 4.6, 5.1), nrow = 4, ncol = 3)
+
+var_matrix
+```
+
+4.
+```{r}
+
+var_list <- list(var_int, var_str, var_numeric, var_logical, var_complex)
+var_list
+```
+
+5.
+```{r}
+
+var_factor <- factor(c("baby", "child", "adult"))
+
+var_factor
+```
+
+6.
+```{r}
+var_vector_find_NA <- c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA,
+11)
+
+var_first_NA_index <- match(NA, var_vector_find_NA)
+var_first_NA_index
+
+var_list_result <- is.na(var_vector_find_NA)
+
+var_result <- length(var_list_result[var_list_result == TRUE])
+var_result
+```
+
+7, 8.
+
+```{r}
+var_data_frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+var_data_frame
+
+colnames(var_data_frame) <- c("test1", "test2", "test3")
+
+var_data_frame
+```
+
+
